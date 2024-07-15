@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Copying Text</title>
+<style>
+/* Styling for the notification banner */
+.copy-notice {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the body element
+    var body = document.body;
+
+    // Create a notification banner
+    var copyNotice = document.createElement("div");
+    copyNotice.classList.add("copy-notice");
+    copyNotice.textContent = "Copying text is not allowed!";
+    body.appendChild(copyNotice);
+
+    // Function to show the notification
+    function showCopyNotice() {
+        copyNotice.style.display = "block";
+        setTimeout(function() {
+            copyNotice.style.display = "none";
+        }, 2000); // Hide after 2 seconds
+    }
+
+    // Event listener for the copy event
+    document.addEventListener("copy", function(event) {
+        // Prevent default copy behavior
+        event.preventDefault();
+        // Show the notification
+        showCopyNotice();
+    });
+});
+</script>
+</head>
+<body>
+<h1>No Copying Text</Textarea></h1>
+<p>Bawal po itu kopyahin. tnx.</p>
+</body>
+</html>
